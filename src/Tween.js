@@ -155,7 +155,7 @@ TWEEN.Tween = function (object) {
 				}
 
 				// Create a local copy of the Array with the start value at the back
-				_valuesEnd[property].push( _valuesEnd[property][0] );
+				//_valuesEnd[property].push( _valuesEnd[property][0] );
 
 			}
 
