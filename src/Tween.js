@@ -154,8 +154,8 @@ TWEEN.Tween = function (object) {
 					continue;
 				}
 
-				// Create a local copy of the Array with the start value at the front
-				_valuesEnd[property] = [_object[property]].concat(_valuesEnd[property]);
+				// Create a local copy of the Array with the start value at the back
+				_valuesEnd[property].push( _valuesEnd[property][0] );
 
 			}
 
@@ -166,7 +166,7 @@ TWEEN.Tween = function (object) {
 			}
 
 			// Save the starting value.
-			_valuesStart[property] = _object[property];
+			_valuesStart[property] = _valuesEnd[property];
 
 			if ((_valuesStart[property] instanceof Array) === false) {
 				_valuesStart[property] *= 1.0; // Ensures we're using numbers, not strings
