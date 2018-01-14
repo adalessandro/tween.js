@@ -213,6 +213,15 @@ TWEEN.Tween = function (object) {
 
 	};
 
+	this.updateDuration = function (duration, time) {
+		// In order to keep the tween interpolation at the same position,
+		// the start time has to be scaled according to the new duration.
+		time = time !== undefined ? time : TWEEN.now();
+		_startTime = (duration / _duration) * (_startTime - time) + time;
+		_duration = duration;
+		return this;
+	};
+
 	this.delay = function (amount) {
 
 		_delayTime = amount;
